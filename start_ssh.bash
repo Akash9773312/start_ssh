@@ -1,11 +1,12 @@
 #!/bin/bash
 
+sleep 50
 start_tunnel() {
-  ssh -N -R 7624:localhost:22 akash@rev.vet && echo "SSH tunnel created."
+  ssh -N -R 7624:localhost:22 rkssh@rkssh.rev.vet
 }
 
 check_tunnel() {
-  ssh -q -o "BatchMode=yes" -O check -p 7623 akash@rev.vet
+  ssh -q -o "BatchMode=yes" -O check -p 7624 rkssh@rkssh.rev.vet
 }
 
 while true; do
